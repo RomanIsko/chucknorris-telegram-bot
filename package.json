@@ -1,0 +1,30 @@
+{
+  "name": "chucknorris-telegram-bot",
+  "version": "1.0.0",
+  "description": "Chuck Norris facts",
+  "main": "index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RomanIsko/chucknorris-telegram-bot.git"
+  },
+  "keywords": [
+    "Telegram",
+    "Bot",
+    "Chuck",
+    "Norris"
+  ],
+  "author": "Roman Isko",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/RomanIsko/chucknorris-telegram-bot/issues"
+  },
+  "homepage": "https://github.com/RomanIsko/chucknorris-telegram-bot#readme",
+  "dependencies": {
+    "request": "^2.81.0",
+    "request-promise": "^4.2.0",
+    "telegraf": "^3.6.7"
+  }
+}
