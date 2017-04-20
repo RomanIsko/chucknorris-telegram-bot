@@ -13,15 +13,15 @@ const options = {
 
 app.command('start', (ctx) => {
     console.log('start', ctx.from);
-    ctx.reply('Welcome!\n' +
-              'Bot is in development state.');
-    ctx.reply('Wanna random Chuck Norris fact?', randomInlineButtonMarkup)
+    ctx.reply('Welcome!\n Bot is in development state.')
+        .then(ctx.reply('Wanna random fact about Chuck Norris?', randomInlineButtonMarkup));
 });
 
 app.action('random', (ctx) => {
     console.log('username = ' + ctx.from.username + ' name = ' + ctx.from.first_name + ' ' + ctx.from.last_name);
     rp(options)
         .then(response => {
+            ctx.editMessageReplyMarkup(randomInlineButtonMarkup, undefined);
             ctx.reply(response.value, randomInlineButtonMarkup)
         })
         .catch(function () {
