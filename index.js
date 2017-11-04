@@ -1,10 +1,10 @@
 const Telegraf = require('telegraf');
 const Extra    = require('telegraf/lib/helpers/extra');
-const app      = new Telegraf(process.env.BOT_TOKEN);
+const bot      = new Telegraf(process.env.BOT_TOKEN);
 const rp       = require('request-promise');
 
-app.telegram.getMe().then((botInfo) => {
-    app.options.username = botInfo.username
+bot.telegram.getMe().then((botInfo) => {
+    bot.options.username = botInfo.username
 });
 
 const randomInlineButtonMarkup = Extra.HTML().markup(
@@ -15,14 +15,14 @@ const options = {
     json: true
 };
 
-app.command('start', (ctx) => {
+bot.command('start', (ctx) => {
     console.log('start', ctx.from);
     ctx.reply('Welcome!\n' +
               'Bot is in development state.');
     ctx.reply('Wanna random Chuck Norris fact?', randomInlineButtonMarkup)
 });
 
-app.action('random', (ctx) => {
+bot.action('random', (ctx) => {
     console.log('username = ' + ctx.from.username + ' name = ' + ctx.from.first_name + ' ' + ctx.from.last_name);
     rp(options)
         .then(response => {
@@ -33,4 +33,4 @@ app.action('random', (ctx) => {
         })
 });
 
-app.startPolling();
+bot.startPolling();
