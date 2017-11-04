@@ -23,8 +23,8 @@
   },
   "homepage"    : "https://github.com/RomanIsko/chucknorris-telegram-bot#readme",
   "dependencies": {
-    "request"        : "^2.81.0",
-    "request-promise": "^4.2.0",
-    "telegraf"       : "^3.6.7"
+    "request"        : "^2.83.0",
+    "request-promise": "^4.2.2",
+    "telegraf"       : "^3.15.3"
   }
 }
