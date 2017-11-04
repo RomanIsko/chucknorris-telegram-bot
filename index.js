@@ -1,5 +1,5 @@
 const Telegraf = require('telegraf');
-const Extra    = require('telegraf/lib/helpers/extra');
+const Extra    = require('telegraf/extra');
 const bot      = new Telegraf(process.env.BOT_TOKEN);
 const rp       = require('request-promise');
 
