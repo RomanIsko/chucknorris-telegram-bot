@@ -3,6 +3,10 @@ const Extra    = require('telegraf/lib/helpers/extra');
 const app      = new Telegraf(process.env.BOT_TOKEN);
 const rp       = require('request-promise');
 
+app.telegram.getMe().then((botInfo) => {
+    app.options.username = botInfo.username
+});
+
 const randomInlineButtonMarkup = Extra.HTML().markup(
     (m) => m.inlineKeyboard([m.callbackButton('Give me a random fact', 'random')]));
 
