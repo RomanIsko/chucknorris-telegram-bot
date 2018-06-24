@@ -24,18 +24,13 @@ bot.telegram.getMe().then((botInfo) => {
 const randomInlineButtonMarkup = Extra.HTML().markup(
   (m) => m.inlineKeyboard([m.callbackButton('Give me a random fact', 'random')]))
 
-const options = {
-  uri: 'https://api.chucknorris.io/jokes/random',
-  json: true
-}
-
 bot.command('start', (ctx) => {
   ctx.reply('Welcome!\n Bot is in development state.')
     .then(ctx.reply('Wanna random fact about Chuck Norris?', randomInlineButtonMarkup))
 })
 
 bot.action('random', (ctx) => {
-  rp(options)
+  rp('https://api.chucknorris.io/jokes/random', {json: true})
     .then(response => {
       ctx.editMessageReplyMarkup(randomInlineButtonMarkup, undefined)
       ctx.reply(response.value, randomInlineButtonMarkup)
