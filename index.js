@@ -30,13 +30,11 @@ const options = {
 }
 
 bot.command('start', (ctx) => {
-  console.log('start', ctx.from)
   ctx.reply('Welcome!\n Bot is in development state.')
     .then(ctx.reply('Wanna random fact about Chuck Norris?', randomInlineButtonMarkup))
 })
 
 bot.action('random', (ctx) => {
-  console.log('username = ' + ctx.from.username + ' name = ' + ctx.from.first_name + ' ' + ctx.from.last_name)
   rp(options)
     .then(response => {
       ctx.editMessageReplyMarkup(randomInlineButtonMarkup, undefined)
