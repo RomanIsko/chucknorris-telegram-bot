@@ -26,17 +26,17 @@ const randomInlineButtonMarkup = Extra.HTML().markup(
 
 bot.command('start', (ctx) => {
   ctx.reply('Welcome!\n Bot is in development state.')
-    .then(ctx.reply('Wanna random fact about Chuck Norris?', randomInlineButtonMarkup))
+    .then(() => {return ctx.reply('Wanna random fact about Chuck Norris?', randomInlineButtonMarkup)})
 })
 
 bot.action('random', (ctx) => {
   rp('https://api.chucknorris.io/jokes/random', {json: true})
     .then(response => {
       ctx.editMessageReplyMarkup(randomInlineButtonMarkup, undefined)
-      ctx.reply(response.value, randomInlineButtonMarkup)
+      return ctx.reply(response.value, randomInlineButtonMarkup)
     })
     .catch(function () {
-      ctx.reply('Error\n')
+      return ctx.reply('Error\n')
     })
 })
 
