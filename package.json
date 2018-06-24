@@ -23,6 +23,7 @@
   },
   "homepage": "https://github.com/RomanIsko/chucknorris-telegram-bot#readme",
   "dependencies": {
+    "logzio-nodejs": "^0.4.x",
     "request": "^2.87.x",
     "request-promise": "^4.2.x",
     "telegraf": "^3.21.x"
