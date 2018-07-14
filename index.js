@@ -13,7 +13,7 @@ const logger = require('logzio-nodejs').createLogger({
 bot.use((ctx, next) => {
   return next(ctx).then(() => {
     console.log(ctx.message)
-    logger.log(ctx.message)
+    logger.log(ctx)
   })
 })
 
